@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head>
+    <meta charset = "UTF-8">
+    <title>VarLetConst</title>
+<script>
+
+//1
+const final = "ha llegado a 10";  
+var indicador = "Este es el numero";
+for (let num = 0; num <= 10; num++) {
+    if(num < 10){
+        let resultado = indicador + num;
+        console.log(resultado);
+    }else{
+        console.log(final);
+    }
+}
+
+//2
+var prueba = "varTest";
+const test2 = "constTest";
+console.log(prueba);
+console.log(test2);
+//console.log(num); no encuentra la variable
+
+//3
+var prueba = "varTest2"; //Var deja modificar la variable
+//const test2 = "constTest2"; da error porque una constante no puede cambiar de valor
+let num = 0; //No se ha modificado la variable, se ha declarado
+console.log(prueba);
+console.log(num);
+
+/*4
+○ ¿Qué es hoisting y cómo afecta a var?
+Hoisting mueve las declaraciones al inicio pero las inicializa como undefined, 
+puedes utilizar una variable sin haberla declarado antes.
+
+○ ¿Qué diferencias de alcance existen entre var, let y const?
+var ignora bloques y es de funcion/global, let y const son de bloque .
+
+○ ¿Qué significa que const no permite reasignación pero sí permite mutar
+objetos/arrays? (demuéstralo con código).
+No permite reasignar la variable pero si modificar objetos o arrays.
+Permite añadir un numero a un array, pero no modificar los que ya tiene.
+*/
+const array = [1,2];
+array.push(3);      // si lo permite
+array = [4,5];      // da error
+
+</script>
+</head>
+</html>
