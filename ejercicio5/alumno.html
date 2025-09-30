@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head>
+    <meta charset = "UTF-8">
+    <title>Clase Alumno</title>
+<script>    
+class Alumno{
+    constructor(nombre, edad, nota){
+        this.nombre=nombre;
+        this.edad=edad;
+        this.nota=nota;
+    }
+    getEdad(){
+        return this.edad;
+    }
+    getNombre(){
+        return this.nombre;
+    }
+    getNota(){
+        return this.nota;
+    }
+
+    estaAprobado(nota) {
+        if (nota >= 5) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    presentacion() {
+        if (this.estaAprobado(this.getNota()) == true) {
+            console.log("Soy " + this.getNombre() + " tengo "+ this.getEdad() + " años y mi nota es " + this.getNota() + "(Aprovado)");
+        } else {
+            console.log("Soy " + this.getNombre() + " tengo "+ this.getEdad() + " años y mi nota es " + this.getNota() + "(Suspendido)");
+        }
+    }
+    
+}
+    var alumno1 = new Alumno("Juan", 30, 9);
+    var alumno2 = new Alumno("Pedro", 20, 4);
+    var alumno3 = new Alumno("Lucas", 45, 3);
+    console.log(alumno1.presentacion());
+    console.log(alumno2.presentacion());
+    console.log(alumno3.presentacion());
+</script>
+</head>
+</html>
