@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "es">
+<body>
+    
+    <h2>Introduce tu fecha de nacimiento</h2>
+    <input type = "text" id = "fecha" placeholder = "DD/MM/AAAA"/>
+    <button onclick="calcular()">Calcular</button>
+
+    <script>
+        function calcular(){
+            const fecha = document.getElementById('fecha').value;
+
+            //Valida el formato
+            if(fecha.length !== 10 || fecha[2] !== '/' || fecha[5] !== '/'){
+                alert("Formato incorrecto");
+                return;
+            }
+
+            const partes = fecha.split('/');
+            const dia = parseInt(partes[0]);
+            const mes = parseInt(partes[1]);
+            const año = parseInt(partes[2]);
+
+            const nacimiento = new Date(año, mes - 1, dia);
+
+            //Calcular la edad
+            const hoy = new Date();
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+
+            //Si aun no ha llegado el dia de cumpleaños este año -1
+            if(hoy < new Date(hoy.getFullYear(), nacimiento.getMonth(), nacimiento.getDate())){
+                edad--;
+            }
+
+            //Resultado
+            alert(`Naciste el ${fecha}, tienes ${edad} años.`);
+        }
+
+    </script>
+</body>
+</html>
