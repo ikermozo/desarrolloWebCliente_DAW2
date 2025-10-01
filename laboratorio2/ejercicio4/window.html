@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "es">
+<body onload="iniciar()">
+
+    <script>
+        alert('Bienvenido!');
+        var nombre = prompt('¿Cómo te llamas?');
+        document.write('<p>Hola, ' + nombre + '!</p>');
+    </script>
+
+<button onclick="abrirVentana()">Abrir ventana</button>
+<button onclick="cerrarVentana()">Cerrar ventana</button>
+
+    <script>
+        var ventana = null;
+
+        function iniciar(){
+            console.log('innerWidth:', window.innerWidth, 'innerHeight:', window.innerHeight);
+        }
+
+        function abrirVentana(){
+            ventana = window.open('https://www.youtube.com/?app=desktop&hl=es', '_blank', width = 600, height=400);
+            if(!ventana){
+                alert('No se pudo abrir la vetana');
+            }
+        }
+
+        function cerrarVentana(){
+            if(ventana && !ventana.closed){
+                if(confirm('Quieres cerrar la ventana que has abierto?')){
+                    ventana.close();
+                }
+            }else {
+                alert('No hay ninguna ventana abierta');
+            }
+        }
+
+    </script>
+</body>
+</html>
