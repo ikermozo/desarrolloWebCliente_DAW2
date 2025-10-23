@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    //Parte 1
+        var edad = 24;
+        var nombre = "Pedro";
+        var despierto = true;
+        var datosUsuario = [edad, nombre, despierto];
+        
+        console.log("Nombre" + datosUsuario[1]);
+        console.log("Cantidad de elementos del array: " + datosUsuario.length)
+
+    //Parte 2
+        var dinero = 100;
+        var alojamiento = "hotel";
+        datosUsuario.push(dinero, alojamiento)
+        console.log("Cantidad de elementos del array ampliado: " + datosUsuario.length)
+
+        datosUsuario.pop();
+        for(i = 0; i < datosUsuario.length; i++){
+            console.log(datosUsuario[i]);
+        }
+        //Se elimina alojamiento
+
+        datosUsuario.unshift(alojamiento);
+        console.log("Cantidad de elementos del array ampliado por el inicio: " + datosUsuario.length)
+        for(i = 0; i < datosUsuario.length; i++){
+            console.log(datosUsuario[i]);
+        }
+
+        console.log("Eliminada la primera posición(alojamiento):")
+        datosUsuario.shift();
+        for(i = 0; i < datosUsuario.length; i++){
+            console.log(datosUsuario[i]);
+        }
+
+        //Parte 3
+        comida = "pasta";
+        mascota = "gato";
+        cansado = false;
+        arrayExtra = [comida, mascota, cansado];
+
+        arrayTotal = datosUsuario.concat(arrayExtra);
+        console.log(arrayTotal);
+        console.log("Se unen los dos arrays de forma ordenada respetando las posiciones")
+
+        numeros = [2, 1, 3, 5, 4];
+        console.log(numeros.sort());
+        console.log("Ordena los números de menor a mayor")
+
+        function ordenaDesc(a, b){
+            return b-a;
+        }
+        function ordenaAsc(a, b){
+            return a-b;
+        }
+
+        console.log(numeros.sort(ordenaAsc));
+        console.log(numeros.sort(ordenaDesc));
+
+        arrayTotal.splice(2, 2, "Lemon", "Apple");
+        console.log("Los incluyo en la segunda posición, y elimino los dos de la derecha:\n" + arrayTotal);
+
+        //Parte 4
+        console.log("La cadena es un número: " + isNaN("65") + " " + typeof(isNaN("65")));
+        console.log(parseInt(65.34) + " " +typeof(parseInt(65.34)));
+        console.log(parseFloat(65.89) + " " +typeof(parseFloat(65.89)));
+        console.log(String(106) + " " +typeof(String(106)));
+        console.log(Number(23) + " " +typeof(Number(23)));
+
+    </script>
+</body>
+</html>
