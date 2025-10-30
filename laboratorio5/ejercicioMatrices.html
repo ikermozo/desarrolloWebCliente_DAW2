@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Parte 1");
+        console.log("------------------------------------------------");
+        console.log("Parte 1.1");
+        console.log("------------------------------------------------");
+    
+        let toallitas = ["Toallitas", 11, 2];
+        let papel = ["Papel", 100, 1];
+        let martillo = ["Martillo", 52, 15];
+        let inventario = [toallitas, papel, martillo];
+        console.log("Este es el inventario: ", inventario);
+
+        console.log("------------------------------------------------");
+        console.log("Parte 1.2");
+        console.log("------------------------------------------------");
+        //----
+
+        function almacenamiento(){
+            let resultado = "";
+            for(let i = 0; i < inventario.length; i++){
+                let nombre = inventario[i][0];
+                let precio = inventario[i][2];
+                resultado += "El nombre del artículo  "+ (i+1) + " es: " + nombre + " y el precio: " + precio + "\n";
+            }
+            return resultado;
+        }
+        console.log("Resultado del almacenamiento:\n" + almacenamiento());
+
+        console.log("------------------------------------------------");
+        console.log("Parte 1.3");
+        console.log("------------------------------------------------");
+        //----
+        function elemento1(){
+            let resultado = ""
+            for(let i = 0; i < inventario.length; i++){
+                let nombre = inventario[i][0];
+                resultado += "El nombre del artículo "+ (i+1) + " es: " + nombre + "\n";
+            }
+            return resultado;
+        }
+        console.log("Elementos:\n" + elemento1());
+
+        console.log("------------------------------------------------");
+        console.log("Parte 2");
+        console.log("------------------------------------------------");
+        console.log("Parte 2.1");
+        console.log("------------------------------------------------");
+        //----
+        function calcularValorTotal(inventario){
+            let resultado = ""
+            let total = 0;
+            for(let i = 0; i < inventario.length; i++){
+                let cantidad = inventario[i][1];
+                let precio = inventario[i][2];
+                let temp = cantidad*precio;
+                total += temp;
+            }
+            return "El valor total de todo el inventario es:\n" + total;
+        }
+        console.log("Total:\n" + calcularValorTotal(inventario));
+        
+        console.log("------------------------------------------------");
+        console.log("Parte 2.2");
+        console.log("------------------------------------------------");
+        //----
+        function ordenarPorPrecio(a, b){
+            return a[2]-b[2];
+        }
+
+        console.log("Orden inventario por precio: " + inventario.sort(ordenarPorPrecio));
+        console.log("------------------------------------------------");
+        console.log("Parte 3");
+        console.log("------------------------------------------------");
+        console.log("Parte 3.1");
+        console.log("------------------------------------------------");
+        //----
+        Array.prototype.obtenerUltimoElemento = function(){
+            let ultimoArray=this[this.length-1];
+            return ultimoArray;
+        }
+
+        console.log("El último array: "+inventario.obtenerUltimoElemento());
+
+        console.log("En este caso utilizo this para sustituir al array y para acceder a la última posición de la longitud del mismo array ");
+
+        console.log("------------------------------------------------");
+        console.log("Parte 3.2");
+        console.log("------------------------------------------------");
+        //----
+
+        arraySimple = [1,2,3,4,5];
+        console.log("El último elemento del arraySimple: "+arraySimple.obtenerUltimoElemento());
+        console.log("La longitud del arraySimple: " + arraySimple.length)
+    </script>
+</body>
+</html>

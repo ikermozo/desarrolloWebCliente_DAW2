@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "es">
+
+<body onload="iniciar()">
+
+        <!-- formulario para Nickname-->
+    <label for="nick">Introduce tu Nickname:</label>
+    <input type="text" id="nick" name="nick"/><br/>
+    
+    <label for="color">Introduce el color del fondo:</label>
+    <input type="color" name="color"/><br/>
+    <p>Selecciona el color del fondo:</p>
+        <script>
+            const nickname = localStorage.getItem('nick')
+            const color = localStorage.getItem('color')
+        </script>
+    
+<!-- Boton aplicar para los dos valores anteriores-->
+<button onclick="aplicar()">Aplicar</button><br/><br/>
+    <script>
+
+        //ultima visita, leer escribir y actualizar la ultima visita
+        //mostrar la fecha de la ultima visita si existe, o crear la cookie si no.(document.cookie)
+        
+
+        //contador de sesion, cada vez que se recarga la pagina sumar el contador y mostrar el valor
+    </script>
+<p>Contador de sesiones: <script>sesiones</script></p>
+<!-- Qué es localStorage y como lo he utilizado, y las cookies?-->
+
+<!--      -->
+
+<!-- Botón abrir ventana hija-->
+<button onclick="abrirVentana()">Abrir ventana</button>
+
+    <script>
+        var ventana = null;
+        var sesion = 1;
+        function iniciar(){
+            sesion++;
+            const sesiones = localStorage.setItem(sesion);
+            
+        }
+        function aplicar(){
+            localStorage.setItem('nick');
+            const color = localStorage.setItem('color');
+            iniciar();
+        }
+
+        function abrirVentana(){
+            ventana = window.open('hijaWeb.html', '_blank', width = 600, height=400);
+            if(!ventana){
+                alert('No se pudo abrir la vetana');
+            }
+        }
+
+
+    </script>
+</body>
+</html>
