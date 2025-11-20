@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Pais{
+
+            constructor(nombre, poblacion, area, ciudades=[]){
+                this.nombre = nombre;
+                this.poblacion = poblacion;
+                this.area = area;
+                this.ciudades = ciudades;
+            }
+
+            //EJERCICIO 2
+            incrementarPoblacion(cantidad){
+                this.poblacion += cantidad;
+                return this.poblacion;
+            }
+
+            densidad(){ 
+                return this.poblacion/this.area;
+            }
+
+             //EJERCICIO 3
+            
+            compararArea(otroPais){
+                return(this.area> otroPais.area) ? `${this.nombre} es mas grande que  ${otroPais.nombre}` : `${otroPais.nombre} es mas grande que ${this.nombre}`;           
+            }
+
+             //EJERCICIO 4
+
+            mostrarCiudades() {
+                this.ciudades.forEach(ciudad => {
+                    console.log(ciudad);
+                });
+            }
+
+            mostrarCiudadesPorLetra() {
+                for (let i = 0; i < this.ciudades.length; i++) {
+                    console.log("Ciudad: ", this.ciudades[i]);
+                    for (let j = 0; j < this.ciudades[i].length; j++) {
+                        console.log(this.ciudades[i][j]);
+                    }
+                }
+            }
+
+        }
+
+        let paisOg = new Pais("España", 49442844, 505978, ["San Sebastián", "Barcelona", "Cádiz"]);
+        let otroPais = new Pais("Colombia", 52900000, 1141748, ["Bogotá", "Medellín", "Cartagena"]);
+
+        console.log("\n============");
+        console.log("EJERCICIO 2 - Métodos con operadores básicos y acumulativos");
+        console.log("============\n");
+        // Prueba de incrementarPoblacion
+        console.log("--- Método: incrementarPoblacion ---");
+        console.log(`Entrada: ${paisOg.nombre}, cantidad = 100000`);
+        console.log(`Población antes: ${paisOg.poblacion}`);
+        paisOg.incrementarPoblacion(100000);
+        console.log(`Salida esperada: mayor numero de población`);
+        console.log(`Resultado: ${paisOg.poblacion}\n`);
+
+        // Prueba de densidad
+        console.log("--- Método: densidad ---");
+        console.log(`Entrada: ${paisOg.nombre}`);
+        console.log(`Salida esperada: densidad (población/área)`);
+        console.log(`Resultado: ${paisOg.densidad().toFixed(2)} habitantes/km²\n`);
+
+        console.log(`Entrada: ${otroPais.nombre}`);
+        console.log(`Salida esperada: densidad (población/área)`);
+        console.log(`Resultado: ${otroPais.densidad().toFixed(2)} habitantes/km²\n`);
+
+        console.log("\n============");
+        console.log("EJERCICIO 3 - Operadores comparativos y ternario");
+        console.log("============\n");
+        // Prueba de compararArea
+        console.log("--- Método: compararArea ---");
+        console.log(`Entrada: ${paisOg.nombre} vs ${otroPais.nombre}`);
+        console.log(`Salida esperada: mensaje comparativo`);
+        console.log(`Resultado: ${paisOg.compararArea(otroPais)}\n`);
+
+        console.log("\n============");
+        console.log("EJERCICIO 4 - Trabajo con listas y bucles anidados");
+        console.log("============\n");
+        // Prueba de mostrarCiudades
+        console.log("--- Método: mostrarCiudades ---");
+        console.log(`Entrada: ${paisOg.nombre}`);
+        console.log(`Salida esperada: lista de ciudades`);
+        console.log(`Resultado:`);
+        paisOg.mostrarCiudades();
+        console.log("");
+
+        console.log(`Entrada: ${otroPais.nombre}`);
+        console.log(`Salida esperada: lista de ciudades`);
+        console.log(`Resultado:`);
+        otroPais.mostrarCiudades();
+        console.log("");
+
+        // Prueba de mostrarCiudadesPorLetra
+        console.log("--- Método: mostrarCiudadesPorLetra ---");
+        console.log(`Entrada: ${paisOg.nombre}`);
+        console.log(`Salida esperada: cada ciudad con sus letras`);
+        console.log(`Resultado:`);
+        paisOg.mostrarCiudadesPorLetra();
+        console.log("");
+
+        console.log("============");
+    </script>
+</body>
+</html>
