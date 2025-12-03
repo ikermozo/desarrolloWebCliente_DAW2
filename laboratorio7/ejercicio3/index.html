@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <h2>Ejercicio 3</h2>
+
+    <p id="mensaje"></p>
+
+    <button type="button" onclick="crearElemento()">Crear elemento de lista</button>
+
+    <script>
+        function crearElemento() {
+            // 1. Crear un nuevo nodo de elemento de lista
+            const nuevoLi = document.createElement('li');
+
+            // 2. Asignarle el texto visible "Nuevo Mensaje"
+            nuevoLi.textContent = 'Nuevo Mensaje';
+
+            // 3. Modificar el contenido HTML interno del párrafo
+            const mensaje = document.getElementById('mensaje');
+            mensaje.innerHTML = nuevoLi.outerHTML;
+        }
+    </script>
+</body>
+
+</html>

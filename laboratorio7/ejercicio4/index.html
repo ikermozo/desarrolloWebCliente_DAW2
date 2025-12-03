@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4 - Radio Button con localStorage</title>
+</head>
+
+<body>
+    <h1>Ejercicio 4: Radio Button con Persistencia</h1>
+    <p>Abre la consola</p>
+    <p>Marca/desmarca el checkbox y recarga la página</p>
+
+    <label>
+        <input type="radio" id="acepto_condiciones" name="condiciones">
+        Acepto las condiciones de uso
+    </label>
+
+    <script>
+        const radio = document.getElementById('acepto_condiciones');
+
+        console.log("Ejercicio 4");
+        console.log("");
+
+        console.log("Estado del radio button y color de fondo según la selección (persistente con localStorage)");
+        console.log("");
+        const estadoGuardado = localStorage.getItem('acepto_condiciones');
+        if (estadoGuardado === 'true') {
+            radio.checked = true;
+        }
+
+        const estaSeleccionado = radio.checked;
+
+        console.log("Estado del radio button:");
+        console.log("ID:", radio.id);
+        console.log("Checked:", estaSeleccionado);
+        console.log("Type:", radio.type);
+        console.log("Name:", radio.name);
+        console.log("");
+
+        if (estaSeleccionado) {
+            document.body.style.backgroundColor = 'lightgreen';
+            console.log("Has aceptado las condiciones");
+            console.log("Fondo: VERDE");
+        } else {
+            document.body.style.backgroundColor = 'lightcoral';
+            console.log("No has aceptado las condiciones");
+            console.log("Fondo: ROJO");
+        }
+        console.log("");
+
+        console.log("Estado guardado en localStorage:", estadoGuardado);
+
+        radio.addEventListener('change', function () {
+            localStorage.setItem('acepto_condiciones', this.checked);
+            console.log("Estado guardado en localStorage:", this.checked);
+            location.reload();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Formulario de Usuario</title>
+</head>
+
+<body>
+    <h2>Ejercicio 2 - Formulario de Usuario</h2>
+    <form id="miFormulario">
+        <label>Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <br>
+        <label>Fecha de nacimiento</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+        <br>
+        <label>Pais de nacionalidad</label>
+        <select name="pais" id="pais">
+            <option value="">Seleccione un país</option>
+            <option value="España">España</option>
+            <option value="México">México</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Chile">Chile</option>
+            <option value="Perú">Perú</option>
+        </select>
+        <br>
+        <button type="button" onclick="mostrarDatos()">Enviar</button>
+    </form>
+
+    <script>
+        function mostrarDatos() {
+            const nombre = document.getElementById('nombre').value;
+            const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            const pais = document.getElementById('pais').value;
+            alert('Nombre: ' + nombre + '\nFecha de nacimiento: ' + fechaNacimiento + '\nPais de nacionalidad: ' + pais);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Cookies Array</title>
+</head>
+
+<body>
+    <h2>Ejercicio 1 - Cookies Array</h2>
+    <script>
+        document.cookie = "usuario=ana;"
+        document.cookie = "idioma=es;"
+        document.cookie = "tema=oscuro;"
+
+        console.log("1. Número del ejercicio:");
+        console.log("Ejercicio 1");
+        console.log("");
+
+        console.log("Cookies completas:");
+        console.log(document.cookie);
+        console.log("");
+
+        console.log("Cookies en array:");
+        const cookiesArray = document.cookie.split(';');
+        console.log(cookiesArray);
+
+        console.log("¿Qué línea de JavaScript permite convertir la cadena completa de document.cookie en un array?");
+        console.log(" document.cookie.split('; ')");
+    </script>
+</body>
+
+</html>
