@@ -16,13 +16,13 @@
 
     <script>
         function crearElemento() {
-            // 1. Crear un nuevo nodo de elemento de lista
+            // 1. Nuevo nodo
             const nuevoLi = document.createElement('li');
 
-            // 2. Asignarle el texto visible "Nuevo Mensaje"
+            // 2. Texto visible "Nuevo Mensaje"
             nuevoLi.textContent = 'Nuevo Mensaje';
 
-            // 3. Modificar el contenido HTML interno del párrafo
+            // 3. Modifica el contenido HTML interno del párrafo
             const mensaje = document.getElementById('mensaje');
             mensaje.innerHTML = nuevoLi.outerHTML;
         }

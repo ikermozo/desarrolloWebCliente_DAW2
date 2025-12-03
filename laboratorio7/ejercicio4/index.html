@@ -9,7 +9,7 @@
 <body>
     <h1>Ejercicio 4: Radio Button con Persistencia</h1>
     <p>Abre la consola</p>
-    <p>Marca/desmarca el checkbox y recarga la página</p>
+    <p>Marca el radio button y recarga la página</p>
 
     <label>
         <input type="radio" id="acepto_condiciones" name="condiciones">
@@ -22,7 +22,7 @@
         console.log("Ejercicio 4");
         console.log("");
 
-        console.log("Estado del radio button y color de fondo según la selección (persistente con localStorage)");
+        console.log("Estado del radio button y color de fondo según la selección");
         console.log("");
         const estadoGuardado = localStorage.getItem('acepto_condiciones');
         if (estadoGuardado === 'true') {
@@ -48,7 +48,6 @@
             console.log("Fondo: ROJO");
         }
         console.log("");
-
         console.log("Estado guardado en localStorage:", estadoGuardado);
 
         radio.addEventListener('change', function () {
