@@ -1,0 +1,408 @@
+/* =====================================================
+   PRÁCTICA 12 · style.css
+   ===================================================== */
+
+/* ── Variables globales ── */
+:root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface-2: #1c2330;
+    --border: #30363d;
+    --border-focus: #58a6ff;
+    --accent: #3fb950;
+    --accent-dim: #1a4028;
+    --danger: #f85149;
+    --danger-dim: #3d1a1a;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --radius: 10px;
+    --radius-sm: 6px;
+    --font-display: 'Syne', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+    --transition: 0.2s ease;
+}
+
+/* ── Reset y base ── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-mono);
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 1rem 4rem;
+    background-image:
+        linear-gradient(rgba(48, 54, 61, .35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(48, 54, 61, .35) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* ── Contenedor ── */
+.page-wrapper {
+    width: 100%;
+    max-width: 640px;
+}
+
+/* ── Cabecera ── */
+.site-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    animation: fadeDown .5s ease both;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    padding: .2em .9em;
+    margin-bottom: 1rem;
+}
+
+.site-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    color: var(--text);
+}
+
+.site-title em {
+    font-style: normal;
+    color: var(--accent);
+}
+
+.site-subtitle {
+    margin-top: .75rem;
+    color: var(--text-muted);
+    font-size: .85rem;
+    line-height: 1.6;
+}
+
+/* ── Formulario ── */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeUp .55s .1s ease both;
+}
+
+/* ── Fieldset ── */
+fieldset {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background-color: var(--surface);
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+legend {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: .04em;
+    color: var(--accent);
+    background: var(--surface);
+    padding: .15em .75em;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    float: none;
+    width: fit-content;
+}
+
+/* ── Grupos de campo ── */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+}
+
+label {
+    display: block;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+/* ── Inputs, select, textarea ── */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 60%;
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: .6rem .85rem;
+    font-family: var(--font-mono);
+    font-size: .85rem;
+    line-height: 1.5;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, .15);
+}
+
+input:invalid:not(:placeholder-shown),
+textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px rgba(248, 81, 73, .12);
+}
+
+input:valid:not(:placeholder-shown) {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(63, 185, 80, .1);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right .65rem center;
+    background-size: 1rem;
+    padding-right: 2.2rem;
+    cursor: pointer;
+}
+
+select option {
+    background: var(--surface-2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+    width: 100%;
+}
+
+/* ── Wrapper contraseña ── */
+.input-wrapper {
+    position: relative;
+    width: 60%;
+}
+
+.input-wrapper input {
+    width: 100%;
+}
+
+.toggle-pw {
+    position: absolute;
+    right: .6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: .2rem;
+    display: flex;
+    align-items: center;
+    transition: color var(--transition);
+}
+
+.toggle-pw:hover {
+    color: var(--text);
+}
+
+.icon-eye {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* ── Pistas y contadores ── */
+.hint {
+    font-size: .72rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.char-counter {
+    font-size: .72rem;
+    color: var(--text-muted);
+    text-align: right;
+    width: 100%;
+}
+
+#char-count {
+    color: var(--accent);
+}
+
+/* ── Caja de error ── */
+.error-box {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    background: var(--danger-dim);
+    border: 1px solid var(--danger);
+    border-radius: var(--radius-sm);
+    padding: .75rem 1rem;
+    font-size: .85rem;
+    color: var(--danger);
+    animation: shake .35s ease;
+}
+
+.error-box[hidden] {
+    display: none;
+}
+
+.error-box svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* ── Botón submit ── */
+.btn-submit {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: .65rem;
+    background: var(--accent);
+    color: #0d1117;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: .95rem;
+    letter-spacing: .02em;
+    padding: .75rem 1.75rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-submit svg {
+    width: 1rem;
+    height: 1rem;
+    transition: transform var(--transition);
+}
+
+.btn-submit:hover {
+    background: #52c869;
+    box-shadow: 0 0 20px rgba(63, 185, 80, .35);
+}
+
+.btn-submit:hover svg {
+    transform: translateX(4px);
+}
+
+.btn-submit:active {
+    transform: scale(.97);
+}
+
+/* ── Footer ── */
+.site-footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: .75rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+    line-height: 1.6;
+    animation: fadeUp .6s .25s ease both;
+}
+
+.site-footer strong {
+    color: var(--text);
+}
+
+/* ── Animaciones ── */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-6px);
+    }
+
+    40% {
+        transform: translateX(6px);
+    }
+
+    60% {
+        transform: translateX(-4px);
+    }
+
+    80% {
+        transform: translateX(4px);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 500px) {
+    fieldset {
+        padding: 1.25rem 1.1rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        width: 100%;
+    }
+
+    .input-wrapper {
+        width: 100%;
+    }
+}
